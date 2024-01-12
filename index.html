@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: #303940;
+        }
+        
+        h3, div{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div id="player1">
+            <h3>Player 1 Life Points</h3>
+            <div id="pl1LP" style="font-weight: bold; font-size: 40px;">8000</div><br>
+            <div>
+                <input type="number" id="lp1mod" style="width: 100px;">
+                <button onclick="plus(1)">+</button>
+                <button onclick="minus(1)">-</button>
+            </div>
+        </div>
+        <div id="player2">
+            <h3>Player 2 Life Points</h3>
+            <div id="pl2LP" style="font-weight: bold; font-size: 40px;">8000</div><br>
+            <div>
+                <input type="number" id="lp2mod" style="width: 100px;">
+                <button onclick="plus(2)">+</button>
+                <button onclick="minus(2)">-</button>
+            </div>
+        </div>
+        <br>
+        <button onclick="restart()">Restart</button>
+    </div>
+    <script>
+        function plus(py){
+            if(py == 1){
+                var currlp = document.getElementById("pl1LP").innerText;
+                var mod = document.getElementById("lp1mod").value;
+                if(mod == 0 || mod == ""){
+                    alert("add modifier");
+                }else{
+                    var newLP = parseInt(currlp) + parseInt(mod);
+                    document.getElementById("pl1LP").innerText = newLP;
+                }
+            }
+            if(py == 2){
+                var currlp = document.getElementById("pl2LP").innerText;
+                var mod = document.getElementById("lp2mod").value;
+                if(mod == 0 || mod == ""){
+                    alert("add modifier");
+                }else{
+                    var newLP = parseInt(currlp) + parseInt(mod);
+                    document.getElementById("pl2LP").innerText = newLP;
+                }
+            }
+        }
+
+        function minus(py){
+            if(py == 1){
+                var currlp = document.getElementById("pl1LP").innerText;
+                var mod = document.getElementById("lp1mod").value;
+                if(mod == 0 || mod == ""){
+                    alert("add modifier");
+                }else{
+                    var newLP = (currlp-mod<0?0:currlp-mod);
+                    document.getElementById("pl1LP").innerText = newLP;
+                }
+            }
+            if(py == 2){
+                var currlp = document.getElementById("pl2LP").innerText;
+                var mod = document.getElementById("lp2mod").value;
+                if(mod == 0 || mod == ""){
+                    alert("add modifier");
+                }else{
+                    var newLP = (currlp-mod<0?0:currlp-mod);
+                    document.getElementById("pl2LP").innerText = newLP;
+                }
+            }
+        }
+
+        function restart(){
+            document.getElementById("pl1LP").innerText = 8000;
+            document.getElementById("pl2LP").innerText = 8000;
+            document.getElementById("lp1mod").value = "";
+            document.getElementById("lp2mod").value = "";
+
+        }
+    </script>
+</body>
+</html>
